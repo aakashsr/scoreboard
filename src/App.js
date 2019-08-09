@@ -6,8 +6,8 @@ import Player from "./Player";
 function App() {
   return (
     <div className="scoreboard">
-      <Header title='Scoreboard' totalplayers={1} />
-      <Player />
+      <Header title="Scoreboard" totalplayers={1} />
+      <Player name="Guil" score={35}/>
     </div>
   );
 }

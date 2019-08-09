@@ -1,11 +1,12 @@
 import React from "react";
-import Counter from "./Counter"
+import Counter from "./Counter";
 
-const Player = () => {
+const Player = props => {
+  const playername  = props.name;
   return (
     <div className="player">
-      <span className="player-name">Guil</span>
-      <Counter />
+      <span className="player-name">{playername}</span>
+      <Counter score={props.score} />
     </div>
   );
 };
