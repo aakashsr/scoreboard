@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Component } from "react";
 import "./App.css";
 import Header from "./Header";
 import Player from "./Player";
@@ -26,16 +26,22 @@ const players = [
   }
 ];
 
-function App() {
-  return (
-    <div className="scoreboard">
-      <Header title="Scoreboard" totalplayers={players.length} />
-      {players.map(player => (
-        <Player key={player.id.toString()} name={player.name} score={player.score} />
-      ))}
+class App extends Component {
 
-    </div>
-  );
+  render() {
+    return (
+      <div className="scoreboard">
+        <Header title="Scoreboard" totalplayers={players.length} />
+        {players.map(player => (
+          <Player
+            key={player.id.toString()}
+            name={player.name}
+            // score={player.score}
+          />
+        ))}
+      </div>
+    );
+  }
 }
 
 export default App;
