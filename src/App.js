@@ -8,30 +8,26 @@ class App extends Component {
     players: [
       {
         name: "Guil",
-        score: 50,
         id: 1
       },
       {
         name: "Treasure",
-        score: 85,
         id: 2
       },
       {
         name: "Ashley",
-        score: 95,
         id: 3
       },
       {
         name: "James",
-        score: 80,
         id: 4
       }
     ]
   };
 
-  removePlayer = contact => {
+  removePlayer = id => {
      this.setState(currentState => ({
-       contacts: currentState.contacts.filter(c => c.id !== contact.id)
+       players: currentState.players.filter(c => c.id !== id)
      }));
   };
 
@@ -42,7 +38,9 @@ class App extends Component {
         {this.state.players.map(player => (
           <Player
             key={player.id.toString()}
+            id={player.id}
             name={player.name}
+            removePlayer={this.removePlayer}
             // score={player.score}
           />
         ))}
