@@ -29,23 +29,58 @@ class App extends Component {
     ]
   };
 
+  // removePlayer = index => {
+  //   let newState = { ...this.state };
+  //   newState.players.splice(1, index);
+  //   this.setState(newState);
+  // };
+
   removePlayer = id => {
     this.setState(currentState => ({
-      players: currentState.players.filter(c => c.id !== id)
-    }));
+        players: currentState.players.filter(c => {
+        return id !== c.id;
+      })
+    }))
+  }
+
+  // incrementScore = index => {
+  //   console.log('logging');
+  //   let newState = {...this.state};
+  //   newState.players[index].score = this.state.players[index].score+1;
+  //   this.setState(
+  //     newState
+  //   );
+  // };
+
+
+  // decrementScore = index => {
+  //   let newState = { ...this.state };
+  //   newState.players[index].score = this.state.players[index].score - 1;
+  //   this.setState(newState);
+  // };
+
+  handleScoreChange = (index, delta) => {
+    // console.log("index: " + index, "delta: " + delta);
+
+      this.setState(prevState => ({
+        // this.state.players[index].score = prevState.players[index].score - 1;
+        state: prevState.players[index].score += delta
+      }))
   };
 
   render() {
     return (
       <div className="scoreboard">
         <Header title="Scoreboard" totalplayers={this.state.players.length} />
-        {this.state.players.map(player => (
+        {this.state.players.map((player, index) => (
           <Player
             key={player.id.toString()}
             id={player.id}
+            index={index}
             score={player.score}
             name={player.name}
             removePlayer={this.removePlayer}
+            changeScore={this.handleScoreChange}
             // score={player.score}
           />
         ))}
