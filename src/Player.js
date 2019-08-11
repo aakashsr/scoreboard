@@ -1,12 +1,12 @@
 import React from "react";
 import Counter from "./Counter";
 
-const Player = ({changeScore,score,name,removePlayer,index,id}) => {
+const Player = ({changeScore,score,name,removePlayer,index,id,player}) => {
   return (
     <div className="player">
       <span className="player-name">
         <button
-          onClick={() => removePlayer(id)}
+          onClick={() => removePlayer(player)}
           className="remove-player"
         >
           ✖

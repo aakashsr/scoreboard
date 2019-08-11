@@ -1,12 +1,13 @@
 import React from "react";
+import Stats from "./Stats";
 
-const Header = (props) => {
+const Header = ({ title, players, score }) => {
   return (
     <header>
-      <h1>{props.title}</h1>
-      <span className='stats'>Players : {props.totalplayers}</span>
+      <Stats players={players} />
+      <h1>{title}</h1>
     </header>
   );
-}
+};
 
 export default Header;
