@@ -57,26 +57,6 @@ class App extends Component {
   // };
 
   addNewPlayer = name => {
-    // this.setState({
-    //   players: [
-    //     {
-    //       name: name,
-    //       score: 0,
-    //       id: this.state.players.length
-    //     }
-    //   ]
-    // });
-
-    //   this.setState(prevContacts => ({
-    //     players: prevContacts.players.concat([
-    //       {
-    //         name: name,
-    //         score: 0,
-    //         id: (this.prevPlayerid += 1)
-    //       }
-    //     ])
-    //   }));
-    // };
 
     this.setState(prevContacts => ({
       players: [
