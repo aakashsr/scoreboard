@@ -2,27 +2,29 @@ import React, { Component } from "react";
 
 class AddPlayerForm extends Component {
   state = {
-    query: ""
+    value: ""
   };
 
-  updateQuery = value => {
-    this.setState(() => ({
-      query: value
-    }));
+  handleValueChange = e => {
+    this.setState({
+      value: e.target.value
+    });
   };
 
   handleSubmit = e => {
     e.preventDefault();
-    if (this.props.onCreateContact) {
-      this.props.onCreateContact(e.target);
-    }
+    this.props.addPlayer(this.state.value);
+    this.setState({
+      value:""
+    })
   };
+
   render() {
     return (
       <form onSubmit={this.handleSubmit}>
         <input
-          value={this.state.query}
-          onChange={event => this.updateQuery(event.target.value)}
+          value={this.state.value}
+          onChange={this.handleValueChange}
           type="text"
           placeholder="Enter a player's name"
         />

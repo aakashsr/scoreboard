@@ -30,12 +30,15 @@ class App extends Component {
     ]
   };
 
+  // Counter 
+
+  prevPlayerid = this.state.players.length;
+
   // removePlayer = index => {
   //   let newState = { ...this.state };
   //   newState.players.splice(index,1);
   //   this.setState(newState);
   // };
-
 
   removePlayer = player => {
     this.setState(currentState => ({
@@ -53,9 +56,25 @@ class App extends Component {
   //   );
   // };
 
-  addNewPlayer = player => {
-    this.setState(prevState => ({
-      players: prevState.players.concat(<Player name="Aakash" score={0}/>)
+  addNewPlayer = name => {
+    // this.setState({
+    //   players: [
+    //     {
+    //       name: name,
+    //       score: 0,
+    //       id: this.state.players.length
+    //     }
+    //   ]
+    // });
+
+    this.setState(prevContacts => ({
+      players: prevContacts.players.concat([
+        {
+          name: name,
+          score: 0,
+          id: (this.prevPlayerid += 1)
+        }
+      ])
     }));
   };
 
@@ -83,11 +102,7 @@ class App extends Component {
             // score={player.score}
           />
         ))}
-        <AddPlayerForm
-          onCreateContact={player => {
-            this.addNewPlayer(player);
-          }}
-        />
+        <AddPlayerForm addPlayer={this.addNewPlayer} />
       </div>
     );
   }
