@@ -30,7 +30,7 @@ class App extends Component {
     ]
   };
 
-  // Counter 
+  // Counter
 
   prevPlayerid = this.state.players.length;
 
@@ -67,14 +67,26 @@ class App extends Component {
     //   ]
     // });
 
+    //   this.setState(prevContacts => ({
+    //     players: prevContacts.players.concat([
+    //       {
+    //         name: name,
+    //         score: 0,
+    //         id: (this.prevPlayerid += 1)
+    //       }
+    //     ])
+    //   }));
+    // };
+
     this.setState(prevContacts => ({
-      players: prevContacts.players.concat([
+      players: [
+        ...prevContacts.players,
         {
           name: name,
           score: 0,
           id: (this.prevPlayerid += 1)
         }
-      ])
+      ]
     }));
   };
 
