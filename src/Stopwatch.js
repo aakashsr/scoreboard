@@ -4,7 +4,7 @@ export default class Stopwatch extends Component {
   state = {
     isRunning: false,
     elapsedTime: 0,
-    previousTime: 0
+    previousTime: 0,
   };
 
   componentDidMount() {
@@ -12,7 +12,13 @@ export default class Stopwatch extends Component {
   }
 
   tick = () => {
-    console.log("ticking...");
+    if(this.state.isRunning) {
+        const now = Date.now();
+        this.setState( prevState => ({
+            previousTime: now,
+            elapsedTime: prevState.elapsedTime + (now - this.state.previousTime) 
+        }))
+    }
   };
 
   handleStopwatch = () => {
