@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import "./App.css";
 import Header from "./Header";
 import Player from "./Player";
+import AddPlayerForm from "./AddPlayerForm";
 
 class App extends Component {
   state = {
@@ -35,6 +36,7 @@ class App extends Component {
   //   this.setState(newState);
   // };
 
+
   removePlayer = player => {
     this.setState(currentState => ({
       players: currentState.players.filter(c => {
@@ -51,6 +53,12 @@ class App extends Component {
   //   );
   // };
 
+  addNewPlayer = player => {
+    this.setState(prevState => ({
+      players: prevState.players.concat(<Player name="Aakash" score={0}/>)
+    }));
+  };
+
   handleScoreChange = (index, delta) => {
     this.setState(prevState => ({
       state: (prevState.players[index].score += delta)
@@ -64,7 +72,7 @@ class App extends Component {
 
         {this.state.players.map((player, index) => (
           <Player
-            key={player.id.toString()}
+            // key={player.id.toString()}
             id={player.id}
             player={player}
             index={index}
@@ -75,6 +83,11 @@ class App extends Component {
             // score={player.score}
           />
         ))}
+        <AddPlayerForm
+          onCreateContact={player => {
+            this.addNewPlayer(player);
+          }}
+        />
       </div>
     );
   }
