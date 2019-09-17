@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 
 class AddPlayerForm extends Component {
+
+
   state = {
     value: ""
   };
@@ -12,15 +14,17 @@ class AddPlayerForm extends Component {
   };
 
   handleSubmit = e => {
-    const { addPlayer } = this.props;
+
+     const { addPlayer } = this.props;
     e.preventDefault();
     addPlayer(this.state.value);
     this.setState({
-      value: ""
-    });
+      value:""
+    })
   };
 
   render() {
+
     return (
       <form onSubmit={this.handleSubmit}>
         <input

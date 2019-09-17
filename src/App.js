@@ -57,7 +57,6 @@ class App extends Component {
   // };
 
   addNewPlayer = name => {
-
     this.setState(prevContacts => ({
       players: [
         ...prevContacts.players,
