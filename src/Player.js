@@ -1,6 +1,7 @@
 import React, { PureComponent } from "react";
 import Counter from "./Counter";
 import Proptypes from "prop-types";
+import Icon from "./Icon";
 
 class Player extends PureComponent {
   static propTypes = {
@@ -33,6 +34,7 @@ class Player extends PureComponent {
           >
             ✖
           </button>
+          <Icon />
           {name}
         </span>
         <Counter
