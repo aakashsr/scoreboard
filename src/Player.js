@@ -22,7 +22,7 @@ class Player extends PureComponent {
       index,
       player,
       handleScoreChangeAndHighestScore,
-      ishighScore
+      isHighScore
     } = this.props;
 
     return (
@@ -34,7 +34,7 @@ class Player extends PureComponent {
           >
             ✖
           </button>
-          <Icon isHightScore={ishighScore} />
+          <Icon isHighScore={isHighScore} />
           {name}
         </span>
         <Counter
