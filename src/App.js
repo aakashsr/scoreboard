@@ -84,9 +84,7 @@ class App extends Component {
     }));
   };
 
-  handleScoreChangeAndHighestScore = (index, delta) => {
-    this.handleScoreChange(index, delta);
-  };
+
 
   render() {
     const highScore = this.getHighScore();
@@ -104,9 +102,6 @@ class App extends Component {
             name={player.name}
             removePlayer={this.removePlayer}
             changeScore={this.handleScoreChange}
-            handleScoreChangeAndHighestScore={
-              this.handleScoreChangeAndHighestScore
-            }
             isHighScore={highScore === player.score}
             // score={player.score}
           />
