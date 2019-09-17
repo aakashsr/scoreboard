@@ -40,6 +40,12 @@ class App extends Component {
   //   this.setState(newState);
   // };
 
+  highestScorer = () => {
+    this.state.players.reduce((prev, player) => {
+      return prev.score > player.score ? prev.score : player.score;
+    });
+  };
+
   removePlayer = player => {
     this.setState(currentState => ({
       players: currentState.players.filter(c => {
@@ -75,7 +81,13 @@ class App extends Component {
     }));
   };
 
+  handleScoreChangeAndHighestScore = (index, delta) => {
+    this.handleScoreChange(index, delta);
+    this.highestScorer();
+  };
+
   render() {
+    console.log(this.highestScorer());
     return (
       <div className="scoreboard">
         <Header players={this.state.players} />
@@ -90,6 +102,10 @@ class App extends Component {
             name={player.name}
             removePlayer={this.removePlayer}
             changeScore={this.handleScoreChange}
+            highestScorer={this.highestScorer}
+            handleScoreChangeAndHighestScore={
+              this.handleScoreChangeAndHighestScore
+            }
             // score={player.score}
           />
         ))}
