@@ -89,7 +89,7 @@ class App extends Component {
   };
 
   render() {
-    console.log(this.highestScorer());
+    const highScore = this.getHighScore();
     return (
       <div className="scoreboard">
         <Header players={this.state.players} />
@@ -107,6 +107,7 @@ class App extends Component {
             handleScoreChangeAndHighestScore={
               this.handleScoreChangeAndHighestScore
             }
+            isHighScore={highScore === player.score}
             // score={player.score}
           />
         ))}

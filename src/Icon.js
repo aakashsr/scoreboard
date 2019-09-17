@@ -1,7 +1,7 @@
 // Icon.js
 import React from "react";
 
-const Icon = props => {
+const Icon = ({ isHightScore }) => {
   return (
     <svg viewBox="0 0 44 35">
       <path
